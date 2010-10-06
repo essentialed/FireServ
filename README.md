@@ -27,7 +27,7 @@ See examples/sessions.sjs
 Static files are cached for 30 days by default. Timestamp based etag and 
 Cache-Control headers are used to manage caching.
 
-### Parsers
+## Parsers
 Currently includes an sjs parser. This is a very basic parser with only two 
 publicly exported methods. document.write and document.writeln. If sessions are 
 enabled, a global sessions object is available through $_session.
