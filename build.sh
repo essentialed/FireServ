@@ -12,7 +12,7 @@ echo "Creating build directory ..."
 rm -rf build
 mkdir build
 echo "Copying files ..."
-cp -r chrome.manifest chrome COPYING examples README defaults install.rdf LICENSE.gpl resources \
+cp -r chrome.manifest chrome COPYING examples README.md defaults install.rdf LICENSE.gpl resources \
     build/
 
 # Include custom resources
