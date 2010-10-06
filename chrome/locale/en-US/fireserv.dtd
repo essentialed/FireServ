@@ -1,0 +1,39 @@
+<!ENTITY preferences.title "Preferences">
+
+<!ENTITY fireserv.general.tab.label "General Settings">
+<!ENTITY fireserv.enabled.checkbox "Enabled">
+<!ENTITY fireserv.debug.checkbox "Debug">
+
+<!ENTITY fireserv.server.tab.label "Server Settings">
+<!ENTITY fireserv.port.label "Port:">
+<!ENTITY fireserv.address.label "Address:">
+<!ENTITY fireserv.directoryindex.label "Directory index:">
+<!ENTITY fireserv.autoindex.checkbox "Auto Index">
+<!ENTITY fireserv.sessions.checkbox "Enable Sessions">
+<!ENTITY fireserv.sessions.autosave.checkbox "Auto-Save Sessions">
+<!ENTITY fireserv.expires.label "Static File Cache Expiration Days:">
+
+<!ENTITY fireserv.directory.tab.label "Directory Settings">
+<!ENTITY fireserv.dirs.description "Select directory or choose a predefined value of: ProfD:/ 'profile directory', Home:/ 'OS root (e.g., /root)', TmpD:/ 'OS tmp (e.g., /tmp)', ProfLD:/ 'Local Settings on windows.', resource:app:/ 'application directory', Desk:/ 'Desktop directory (e.g. ~/Desktop on Linux, C:\Documents and Settings\username\Desktop on Windows)', Progs 'User programs directory (e.g., C:\Documents and Settings\username\Start Menu\Programs)'.">
+<!ENTITY fireserv.picker.label "Select">
+<!ENTITY fireserv.htdocs.label "Htdocs Directory:">
+<!ENTITY fireserv.log.label "Log Directory:">
+<!ENTITY fireserv.data.label "Data Directory:">
+
+<!ENTITY fireserv.parsers.tab.label "Parsers">
+<!ENTITY fireserv.parsers.description "Add/Remove parsers here. Additional parsers should be added to resources/parsers directory.">
+
+<!ENTITY fireserv.controllers.tab.label "Controllers">
+<!ENTITY fireserv.controllers.description "Add/Remove controllers here. Additional controllers should be added to resources/controllers directory.">
+
+<!ENTITY fireserv.mimetypes.tab.label "MIME Types">
+<!ENTITY fireserv.mimetypes.description "Add/Remove additional content types here. Format is extension|Content-Type. Ex: 'sjs|text/html; charset:utf-8'">
+<!ENTITY fireserv.mimetypes.ext "Extension">
+<!ENTITY fireserv.mimetypes.type "Content-Type">
+
+<!ENTITY fireserv.add.label "Add">
+<!ENTITY fireserv.remove.label "Remove">
+<!ENTITY fireserv.removeall.label "Remove All">
+
+<!ENTITY fireserv.menuitem.preferences "Options...">
+<!ENTITY fireserv.menuitem.fireserv.home "FireServ Home ...">

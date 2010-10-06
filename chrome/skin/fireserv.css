@@ -1,0 +1,6 @@
+#fsStatusIcon {
+    list-style-image: url(chrome://fireserv/skin/fireserv-grey.png);
+}
+#fsStatusIcon[status='on'] {
+    list-style-image: url(chrome://fireserv/skin/fireserv.png);
+}

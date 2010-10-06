@@ -1,0 +1,7 @@
+content     fireserv    content/
+skin        fireserv    classic/1.0    skin/
+resource    fireserv    resources/
+
+overlay     chrome://browser/content/browser.xul chrome://fireserv/content/fsBrowserOverlay.xul
+
+locale      fireserv    en-US    locale/en-US/

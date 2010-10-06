@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<!DOCTYPE dialog [
+<!ENTITY % fireservDTD SYSTEM "chrome://fireserv/locale/fireserv.dtd">
+  %fireservDTD;
+]>
+<dialog
+  id="FireServOptions"
+  title="&preferences.title;"
+  buttons="accept, cancel"
+  xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+  style="width: 30em;"
+  ondialogaccept="FireServOptions.doAccept();"
+  ondialogcancel="FireServOptions.doCancel();">
+    <script type="application/x-javascript"
+      src="chrome://fireserv/content/fsPreferencesWindow.js" />
+    <stringbundle id="bundle_fireserv" src="chrome://fireserv/locale/fireserv.properties" />
+    <stringbundle id="bundle_brand" src="chrome://global/locale/brand.properties" />
+
+    <groupbox id="version" orient="horizontal" pack="start">
+        <description id="fsTitle" style="margin-left: 0;"></description>
+        <description style="margin-left: 0;"> &preferences.title;</description>
+    </groupbox>
+    <tabbox flex="1">
+        <tabs>
+            <tab label="&fireserv.general.tab.label;" />
+            <tab label="&fireserv.server.tab.label;" />
+            <tab label="&fireserv.directory.tab.label;" />
+            <tab label="&fireserv.parsers.tab.label;" />
+            <tab label="&fireserv.controllers.tab.label;" />
+            <tab label="&fireserv.mimetypes.tab.label;" />
+        </tabs>
+        <tabpanels flex="1">
+            <tabpanel>
+                <vbox id="general">
+                    <spacer width="400" height="3" />
+                    <hbox>
+                        <spacer width="10"/>
+                        <checkbox id="fireservEnabled" label="&fireserv.enabled.checkbox;"  />
+                    </hbox>
+                    <hbox>
+                        <spacer width="10"/>
+                        <checkbox id="fireservDebug" label="&fireserv.debug.checkbox;"  />
+                    </hbox>
+                </vbox>
+            </tabpanel>
+            <tabpanel>
+                <vbox id="server">
+                    <spacer width="400" height="3" />
+                    <hbox>
+                        <spacer width="10"/>
+                        <vbox>
+                            <spacer height="5"/>
+                            <label control="fireservPort" value="&fireserv.port.label;"/>
+                        </vbox>
+                        <textbox id="fireservPort" width="50" />
+                    </hbox>
+                    <hbox>
+                        <spacer width="10"/>
+                        <vbox>
+                            <spacer height="5"/>
+                            <label control="fireservAddress" value="&fireserv.address.label;"/>
+                        </vbox>
+                        <textbox id="fireservAddress" width="200" />
+                    </hbox>
+                    <hbox>
+                        <spacer width="10"/>
+                        <vbox>
+                            <spacer height="5"/>
+                            <label control="fireservDirectoryIndex" value="&fireserv.directoryindex.label;"/>
+                        </vbox>
+                        <textbox id="fireservDirectoryIndex" width="100" />
+                    </hbox>
+                    <hbox>
+                        <spacer width="10"/>
+                        <checkbox id="fireservAutoIndex" label="&fireserv.autoindex.checkbox;"  />
+                    </hbox>
+                    <hbox>
+                        <spacer width="10"/>
+                        <checkbox id="fireservSessions" label="&fireserv.sessions.checkbox;"  />
+                    </hbox>
+                    <hbox>
+                        <spacer width="10"/>
+                        <checkbox id="fireservSessionsAutoSave" label="&fireserv.sessions.autosave.checkbox;"  />
+                    </hbox>
+                    <hbox>
+                        <spacer width="10"/>
+                        <vbox>
+                            <spacer height="5"/>
+                            <label control="fireservExpires" value="&fireserv.expires.label;"/>
+                        </vbox>
+                        <textbox id="fireservExpires" width="40" />
+                    </hbox>
+                </vbox>
+            </tabpanel>
+            <tabpanel>
+                <vbox id="directory">
+                    <spacer width="400" height="3" />
+                    <hbox>
+                        <spacer width="10"/>
+                        <vbox>
+                            <spacer height="5"/>
+                            <description width="700">&fireserv.dirs.description;</description>
+                        </vbox>
+                    </hbox>
+                    <hbox>
+                        <spacer width="10"/>
+                        <vbox>
+                            <spacer height="5"/>
+                            <label control="fireservHtdocs" value="&fireserv.htdocs.label;"/>
+                        </vbox>
+                        <textbox id="fireservHtdocs" />
+                        <button id="fsPickHtdocs" label="&fireserv.picker.label;"
+                            oncommand="FireServOptions.picker('fireservHtdocs');"/>
+                    </hbox>
+                    <hbox>
+                        <spacer width="10"/>
+                        <vbox>
+                            <spacer height="5"/>
+                            <label control="fireservLog" value="&fireserv.log.label;"/>
+                        </vbox>
+                        <textbox id="fireservLog" />
+                        <button id="fsPickLog" label="&fireserv.picker.label;"
+                            oncommand="FireServOptions.picker('fireservLog');"/>
+                    </hbox>
+                    <hbox>
+                        <spacer width="10"/>
+                        <vbox>
+                            <spacer height="5"/>
+                            <label control="fireservData" value="&fireserv.data.label;"/>
+                        </vbox>
+                        <textbox id="fireservData" />
+                        <button id="fsPickData" label="&fireserv.picker.label;"
+                            oncommand="FireServOptions.picker('fireservData');"/>
+                    </hbox>
+                </vbox>
+            </tabpanel>
+            <tabpanel>
+                <vbox id="parsers">
+                    <spacer width="400" height="3" />
+                    <description>&fireserv.parsers.description;</description>
+                    <separator class="thin"/>
+                    <hbox>
+                        <textbox id="fsParser" flex="1"
+                          onkeypress="FireServOptions.enterAddParser(event);"
+                          oninput="FireServOptions.onInput(event.target, false);"/>
+                        <button id="fsParserAdd" label="&fireserv.add.label;"
+                          disabled="true"
+                          oncommand="FireServOptions.addParser();"/>
+                    </hbox>
+                    <hbox>
+                        <vbox flex="1">
+                            <listbox id="fsParserList"
+                              seltype="single"
+                              style="height: 14em;"
+                              onselect="FireServOptions.parserSelected(event.target);"/>
+                        </vbox>
+                        <vbox>
+                            <button id="fsRemoveParser"
+                              label="&fireserv.remove.label;"
+                              disabled="true"
+                              oncommand="FireServOptions.removeParser();"/>
+                            <button id="fsRemoveAllParsers"
+                              label="&fireserv.removeall.label;"
+                              oncommand="FireServOptions.removeAllParsers();"/>
+                        </vbox>
+                    </hbox>
+                </vbox>
+            </tabpanel>
+            <tabpanel>
+                <vbox id="controllers">
+                    <spacer width="400" height="3" />
+                    <description>&fireserv.controllers.description;</description>
+                    <separator class="thin"/>
+                    <hbox>
+                        <textbox id="fsController" flex="1"
+                          onkeypress="FireServOptions.enterAddController(event);"
+                          oninput="FireServOptions.onInput(event.target, false);"/>
+                        <button id="fsControllerAdd" label="&fireserv.add.label;"
+                          disabled="true"
+                          oncommand="FireServOptions.addController();"/>
+                    </hbox>
+                    <hbox>
+                        <vbox flex="1">
+                            <listbox id="fsControllerList"
+                              seltype="single"
+                              style="height: 14em;"
+                              onselect="FireServOptions.controllerSelected(event.target);"/>
+                        </vbox>
+                        <vbox>
+                            <button id="fsRemoveController"
+                              label="&fireserv.remove.label;"
+                              disabled="true"
+                              oncommand="FireServOptions.removeController();"/>
+                            <button id="fsRemoveAllControllers"
+                              label="&fireserv.removeall.label;"
+                              oncommand="FireServOptions.removeAllControllers();"/>
+                        </vbox>
+                    </hbox>
+
+                </vbox>
+            </tabpanel>
+            <tabpanel>
+                <vbox id="mimetypes">
+                    <spacer width="400" height="3" />
+                    <description>&fireserv.mimetypes.description;</description>
+                    <separator class="thin"/>
+                    <hbox>
+                        <textbox id="fsMimeType" flex="1"
+                          onkeypress="FireServOptions.enterAddMimeType(event);"
+                          oninput="FireServOptions.onInput(event.target, false);"/>
+                        <button id="fsMimeTypeAdd" label="&fireserv.add.label;"
+                          disabled="true"
+                          oncommand="FireServOptions.addMimeType();"/>
+                    </hbox>
+                    <hbox>
+                        <vbox flex="1">
+                            <listbox id="fsMimeTypeList"
+                              seltype="single"
+                              style="height: 14em;"
+                              onselect="FireServOptions.mimeTypeSelected(event.target);">
+                                <listcols>
+                                        <listcol flex="1"/>
+                                        <splitter class="tree-splitter"/>
+                                        <listcol flex="1"/>
+                                </listcols>
+                                <listhead>
+                                    <listheader label="&fireserv.mimetypes.ext;"/>
+                                    <listheader label="&fireserv.mimetypes.type;"/>
+                                </listhead>
+                            </listbox>
+                        </vbox>
+                        <vbox>
+                            <button id="fsRemoveMimeType"
+                              label="&fireserv.remove.label;"
+                              disabled="true"
+                              oncommand="FireServOptions.removeMimeType();"/>
+                            <button id="fsRemoveAllMimeTypes"
+                              label="&fireserv.removeall.label;"
+                              oncommand="FireServOptions.removeAllMimeTypes();"/>
+                        </vbox>
+                    </hbox>
+                </vbox>
+            </tabpanel>
+
+        </tabpanels>
+    </tabbox>
+</dialog>
