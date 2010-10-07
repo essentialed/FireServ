@@ -16,7 +16,7 @@
                   oncommand="FireServ.Chrome.openPreferences();"
                   position="1" />
                 <menuitem label="&fireserv.menuitem.fireserv.home;"
-                  oncommand="FireServ.goHome();" position="2" />
+                  oncommand="FireServ.Chrome.goHome();" position="2" />
             </menupopup>
         </menu>
     </menupopup>
