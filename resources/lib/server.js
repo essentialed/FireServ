@@ -58,7 +58,9 @@ FireServ.Server = {
                 this._logger.trace('Starting server.');
                 this._socket = this.getServer();
             } catch (e) {
-                this._logger.fatal(arguments.callee.name + ' ' + e);
+                try {
+                    this._logger.fatal(arguments.callee.name + ' ' + e);
+                } catch (e) {}
             }
         }
     },

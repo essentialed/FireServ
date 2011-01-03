@@ -162,8 +162,10 @@ Logger.prototype = {
     },
 
     fatal: function Logger_fatal(string) {
-        this.log(new LogMessage(this._name, 'FATAL', string),
-          ['error_log', 'stdout']);
+        try {
+            this.log(new LogMessage(this._name, 'FATAL', string),
+              ['error_log', 'stdout']);
+        } catch (e) {}
     },
 
     error: function Logger_error(string) {

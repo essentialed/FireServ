@@ -31,7 +31,9 @@ let FireServIO = {
 
     getDir: function FireServIO_getDir(dir, create) {
         if (dir && typeof dir === 'string') {
-            if (dir.indexOf('/') === 0 || dir.indexOf(':\\') === 1) {
+            if (dir.indexOf('/') === 0 ||
+              dir.indexOf(':\\') === 1 ||
+              dir.indexOf('\\') === 0) {
                 try {
                     return this.getDirFromPath(dir);
                 } catch (e) {
